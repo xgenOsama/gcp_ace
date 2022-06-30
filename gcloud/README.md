@@ -101,7 +101,7 @@ kubectl delete pod hello-world-rest-api-58dc9d7fcc-8pv7r
 kubectl scale deployment hello-world-rest-api --replicas=1
 kubectl get replicasets
 gcloud projects list
- 
+gcloud container clusters resize my-cluster --node-pool my-node-pool --num-nodes 5
 kubectl delete service hello-world-rest-api
 kubectl delete deployment hello-world-rest-api
 gcloud container clusters delete my-cluster --zone us-central1-c

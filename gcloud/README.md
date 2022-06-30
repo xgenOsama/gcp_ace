@@ -90,6 +90,7 @@ kubectl get secret
 kubectl describe secret hello-world-secrets-1
 kubectl apply -f deployment.yaml
 gcloud container node-pools list --zone=us-central1-c --cluster=my-cluster
+gcloud container node-pools create POOL_NAME --cluser
 kubectl get pods -o wide
  
 kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
@@ -99,9 +100,10 @@ kubectl get pods
 kubectl delete pod hello-world-rest-api-58dc9d7fcc-8pv7r
  
 kubectl scale deployment hello-world-rest-api --replicas=1
+kubectl autoscale deployment hello-world-rest-api --max=10 --cpu-percent=70
 kubectl get replicasets
 gcloud projects list
-gcloud container clusters resize my-cluster --node-pool my-node-pool --num-nodes 5
+gcloud container clusters resize my-cluster --node-pool my-node-pool --num-nodes 5 --zone europe-west1
 kubectl delete service hello-world-rest-api
 kubectl delete deployment hello-world-rest-api
 gcloud container clusters delete my-cluster --zone us-central1-c

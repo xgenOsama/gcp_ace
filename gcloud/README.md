@@ -1,3 +1,5 @@
+# projects config
+```
 gcloud projects list
 gcloud config list project
 gcloud config configurations list
@@ -25,11 +27,9 @@ gcloud compute instance-templates list
 gcloud compute instance-templates create instance-template-from-command-line
 gcloud compute instance-templates delete instance-template-from-command-line
 gcloud compute instance-templates describe my-instance-template-with-custom-image
-
-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
+```
+# compute 
+```
 gcloud compute instances create my-test-vm --source-instance-template=my-instance-template-with-custom-image
 gcloud compute instance-groups managed list
 gcloud compute instance-groups managed delete my-managed-instance-group
@@ -39,8 +39,9 @@ gcloud compute instance-groups managed stop-autoscaling my-mig --zone us-central
 gcloud compute instance-groups managed resize my-mig --size=1 --zone=us-central1-a
 gcloud compute instance-groups managed recreate-instances my-mig --instances=my-mig-85fb --zone us-central1-a
 gcloud compute instance-groups managed delete my-managed-instance-group --region=us-central1
-
-++++++++++++++++++++++++++++++++++++++ App engine +++++++++++++++++++++++++++++++++++++++
+```
+# App engine 
+```
 cd default-service
 gcloud app deploy
 gcloud app services list
@@ -68,8 +69,9 @@ gcloud app browse --service=my-first-service --version=20210215t075851
 gcloud app browse --version=v2
 gcloud app open-console --version=v2
 gcloud app versions list --hide-no-traffic
-
-++++++++++++++++++++++++++ GKE +++++++++++++++++++++++++++++++++++++++++
+```
+# GKE 
+```
 gcloud config set project my-kubernetes-project-304910
 gcloud container clusters get-credentials my-cluster --zone us-central1-c --project my-kubernetes-project-304910
 kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
@@ -107,3 +109,4 @@ gcloud container clusters resize my-cluster --node-pool my-node-pool --num-nodes
 kubectl delete service hello-world-rest-api
 kubectl delete deployment hello-world-rest-api
 gcloud container clusters delete my-cluster --zone us-central1-c
+```
